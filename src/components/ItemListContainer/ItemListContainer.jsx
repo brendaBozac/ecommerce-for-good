@@ -1,6 +1,6 @@
 import {  useEffect,  useState } from 'react'
 import './ItemListContainer.css'
-import { getProductos } from '../../asynckMock'
+/* import { getProductos } from '../../asynckMock' */
 import Item from '../Item/Item'
 
 
@@ -11,14 +11,21 @@ const ItemListContainer = () => {
 
   useEffect(() => {
 
-    getProductos()
+    /* getProductos()
       .then((res) => setProductos(res))
       .catch()
-      .finally(() => setCargando(false))
+      .finally(() => setCargando(false)) */
 
+    fetch('https://fakestoreapi.com/products')
+            .then(data => data.json())
+            .then((res) => setProductos(res))
+            .finally(() => setCargando(false))
   }, [])
 
 /* console.log(productos) */
+
+
+/* patron de retorno anticipado  -  retorno temprano */
 
 if(cargando){ return ( 
   <h2>

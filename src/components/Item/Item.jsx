@@ -2,9 +2,18 @@ import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 
 const Item = ({producto}) => {
+
+  const {id, price, image, title, description, category, rating} = producto
+
   return (
-    <div>{producto.nombre}
-    <ItemCount />
+    <div className="prod-car">
+      <h3>{title}</h3>
+      <img src={image} alt={`foto del producto ${title}`} />
+      <p>{description}</p>
+      <p>{price}</p>
+      <button>ver detalles</button>
+
+
     </div>
     
   )
