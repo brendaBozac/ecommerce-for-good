@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import './Item.css'
 
 const Item = ({producto}) => {
 
@@ -8,7 +9,7 @@ const Item = ({producto}) => {
   return (
     <div className="prod-car">
       <h3>{title}</h3>
-      <img src={image} alt={`foto del producto ${title}`} />
+      <img className="img-item" src={image} alt={`foto del producto ${title}`} />
       <p>{description}</p>
       <p>{price}</p>
       <button>ver detalles</button>
