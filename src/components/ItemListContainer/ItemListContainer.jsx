@@ -13,7 +13,7 @@ const ItemListContainer = () => {
   useEffect(() => {
 
     /* getProductos()
-      .then((res) => setProductos(res))
+      .then((res) => setProductos(res)) 
       .catch()
       .finally(() => setCargando(false)) */
 

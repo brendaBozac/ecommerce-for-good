@@ -1,5 +1,4 @@
 import React from 'react'
-import ItemCount from '../ItemCount/ItemCount'
 import './Item.css'
 
 const Item = ({producto}) => {
@@ -14,6 +13,7 @@ const Item = ({producto}) => {
       <p>{price}</p>
       <button>ver detalles</button>
 
+      
 
     </div>
     
