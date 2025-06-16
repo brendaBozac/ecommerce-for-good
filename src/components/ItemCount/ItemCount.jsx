@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './ItemCount.css'
 
-const ItemCount = () => {
+const ItemCount = ({id}) => {
 
     const [count, setCount] = useState(1);
 
@@ -17,6 +17,9 @@ const ItemCount = () => {
         }
     }
 
+    const comprar = () => {
+        console.log(`compraste ${count} unidades del producto ${id}`)
+    }
 
   return (
     <div className='item-count'>
@@ -26,6 +29,7 @@ const ItemCount = () => {
 
         <button onClick={incrementar}>+</button>
 
+        <button onClick={comprar}>Comprar</button>
 
     </div>
   )

@@ -1,4 +1,6 @@
 import React from 'react'
+import './ItemDetail.css'
+import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({producto, mostrarAnterior, mostrarSiguiente}) => {
 
@@ -13,7 +15,7 @@ const ItemDetail = ({producto, mostrarAnterior, mostrarSiguiente}) => {
       <button onClick={() => mostrarAnterior()}>ver Anterior</button>
       <button onClick={() => mostrarSiguiente()}>ver Siguiente</button>
 
-      
+      <ItemCount id={id}/>
 
     </div>
     
