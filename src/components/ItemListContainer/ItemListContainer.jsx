@@ -3,12 +3,14 @@ import './ItemListContainer.css'
 /* import { getProductos } from '../../asynckMock' */
 import Item from '../Item/Item'
 import './ItemListContainer.css'
+import { useParams } from 'react-router-dom'
 
 
 const ItemListContainer = () => {
 
   const [productos, setProductos] = useState([])
   const [cargando, setCargando] = useState(true)
+  const { categoryId } = useParams()
 
   useEffect(() => {
 
@@ -17,11 +19,17 @@ const ItemListContainer = () => {
       .catch()
       .finally(() => setCargando(false)) */
 
+
+    const url = categoryId
+      ? `https://fakestoreapi.com/products/category/${categoryId}`
+      : 'https://fakestoreapi.com/products'
+
+
     fetch('https://fakestoreapi.com/products')
             .then(data => data.json())
             .then((res) => setProductos(res))
             .finally(() => setCargando(false))
-  }, [])
+  }, [categoryId])
 
 /* console.log(productos) */
 
