@@ -8,3 +8,9 @@
 .img-item {
     width: 20vmax;
 }
+
+.btn {
+    background-color: #222;
+    border-radius: 5%;
+    color: white;
+}

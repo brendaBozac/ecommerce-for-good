@@ -1,27 +1,31 @@
 import { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({})
     const [cargando, setCargando] = useState(true)
     const [error, setError] = useState(null)
-    const [prodId, setProdId] = useState(1)
+    const { id } = useParams()
+    const navigate = useNavigate()
 
 
     const mostrarSiguiente = () => {
-        setProdId(prodId + 1)
+        let ruta = id*1 + 1
+        navigate(`/item/${ruta}`)
     }
  
 
     const mostrarAnterior = () => {
-        setProdId(prodId - 1)
+        let ruta = id*1 - 1
+        navigate(`/item/${ruta}`)
     }
 
 
     useEffect( () => {
         const fetchProducto = async () => {
             try {
-                const res = await fetch (`https://fakestoreapi.com/products/${prodId}`)
+                const res = await fetch (`https://fakestoreapi.com/products/${id}`)
                 const data = await res.json()
                 setProducto(data)
 
@@ -32,7 +36,7 @@ const ItemDetailContainer = () => {
             }
         }
         fetchProducto()
-    }, [prodId])
+    }, [id])
 
     /* console.log(producto) */
   return (
