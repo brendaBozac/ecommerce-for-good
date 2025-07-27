@@ -1,10 +1,29 @@
-import React from 'react'
+import { useContext } from "react"
+import { CartContext } from "../../Context/CartContext"
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount'
+import { Link } from "react-router-dom"
 
 const ItemDetail = ({producto, mostrarAnterior, mostrarSiguiente}) => {
 
   const {id, price, image, title, description, category, rating} = producto
+  const { agregarAlCarrito, quantity, reiniciarCantidad } = useContext(CartContext)
+
+
+  const pulsarComprar = (quantity) => {
+    agregarAlCarrito({...producto, quantity: quantity })
+  }
+
+  const funcionalidadBotonPrev = () => {
+    reiniciarCantidad();
+    mostrarAnterior();
+  }
+
+  const funcionalidadBotonNext = () => {
+    reiniciarCantidad();
+    mostrarSiguiente();
+  }
+
 
   return (
     <div className="prod-car">
