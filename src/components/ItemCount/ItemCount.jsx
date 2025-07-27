@@ -1,35 +1,55 @@
-import React, {useState} from 'react'
+import { useContext } from 'react'
+import { CartContext } from '../../Context/CartContext'
 import './ItemCount.css'
+import { Link } from 'react-router-dom'
 
-const ItemCount = ({id}) => {
 
-    const [count, setCount] = useState(1);
+const ItemCount = ({stock, pulsarComprar}) => {
 
-    const incrementar = () => {
-        if (count < 12) {
-            setCount(count + 1)
+    const { quantity, setQuantity, cart} = useContext(CartContext)
+
+    const increment = () => {
+        if (quantity < stock) {
+            setQuantity(quantity + 1)
         }
     }
 
-    const decrementar = () => {
-        if (count > 1) {
-            setCount(count - 1)
+    const decrement = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1)
         }
     }
 
-    const comprar = () => {
-        console.log(`compraste ${count} unidades del producto ${id}`)
-    }
+    
 
   return (
     <div className='item-count'>
-        <button onClick={decrementar}>-</button>
 
-        <span>{count}</span>
+        <h4 className='tituloDeCantiidad'>Cantidad</h4>
 
-        <button onClick={incrementar}>+</button>
+        <div className='controls'>
 
-        <button onClick={comprar}>Comprar</button>
+            <button onClick={decrement}>-</button>
+
+            <h4>{quantity}</h4>
+
+            <button onClick={increment}>+</button>
+
+        </div>
+
+        <div className='botonesAlCarrito'>
+
+            <button className='botonGeneral' onClick={ () => pulsarComprar(quantity)}>Agregar al Carrito</button>
+
+            {cart.length > 0 && 
+            <Link to='/Cart/Cart'>
+                <button className='botonSecundario'>Ir al Carrito</button>
+            </Link>
+            }
+
+        </div>
+
+       
 
     </div>
   )
