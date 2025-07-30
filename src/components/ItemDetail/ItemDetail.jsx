@@ -31,10 +31,10 @@ const ItemDetail = ({producto, mostrarAnterior, mostrarSiguiente}) => {
       <img className="img-item" src={image} alt={`foto del producto ${title}`} />
       <p>{description}</p>
       <p>{price}</p>
-      <button onClick={() => mostrarAnterior()}>ver Anterior</button>
-      <button onClick={() => mostrarSiguiente()}>ver Siguiente</button>
+      <button onClick={() => funcionalidadBotonPrev()}>ver Anterior</button>
+      <button onClick={() => funcionalidadBotonNext()}>ver Siguiente</button>
 
-      <ItemCount id={id}/>
+      <ItemCount id={id} pulsarComprar={pulsarComprar}/>
 
     </div>
     

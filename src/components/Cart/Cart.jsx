@@ -28,7 +28,7 @@ const Cart = () => {
                 <div className="compraContainer">
 
                     <button onClick={vaciarCarrito} className="vaciarCarrito botonSecundario">Vaciar Carrito</button>
-                    <p className="total">El Total de su Compra es: ......... $ {mostrarTotal()} </p>
+                    <p className="total">El Total de su Compra es: ......... $ {/* mostrarTotal() */} </p>
                     <div className="metodosDePago">
                         <p>métodos de Pago disponibles</p>
                     </div>

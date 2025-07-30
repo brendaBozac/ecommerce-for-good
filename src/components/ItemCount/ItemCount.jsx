@@ -4,12 +4,12 @@ import './ItemCount.css'
 import { Link } from 'react-router-dom'
 
 
-const ItemCount = ({stock, pulsarComprar}) => {
+const ItemCount = ({pulsarComprar}) => {
 
     const { quantity, setQuantity, cart} = useContext(CartContext)
 
     const increment = () => {
-        if (quantity < stock) {
+        if (quantity >= 1) {
             setQuantity(quantity + 1)
         }
     }
